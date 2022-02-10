@@ -26,8 +26,8 @@ class NamesController extends Controller
     public function store(Request $request, Name $name)
     {
         $request->validate([
-           'firstname' => 'required|string|unique:App\Models\Name',
-           'lastname' => 'required|string|unique:App\Models\Name'
+           'firstname' => 'required|string|max:255|unique:App\Models\Name',
+           'lastname' => 'required|string|max:255|unique:App\Models\Name'
         ]);
 
         $name->firstname = $request->get('firstname');
@@ -78,8 +78,8 @@ class NamesController extends Controller
         ]);
 
         $request->validate([
-            'firstname' => 'required|string|unique:App\Models\Name',
-            'lastname' => 'required|string|unique:App\Models\Name'
+            'firstname' => 'required|string|max:255|unique:App\Models\Name',
+            'lastname' => 'required|string|max:255|unique:App\Models\Name'
         ]);
 
         if ($validator->fails()) {
